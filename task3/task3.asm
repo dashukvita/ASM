@@ -1,21 +1,21 @@
 include console.inc
 
 COMMENT *
-   Дана последовательность от 1 до 20 слов, каждое из которых содержит от 1 до 8 заглавных латинских букв; 
-	соседние слова разделены запятой, за последним словом следует точка. 
-	
-	А. Внутреннее представление последовательности слов:
-	7) Список слов, упорядоченных по алфавиту.
-	
-	Б. Какие слова и в каком порядке печатать: 
-	12)Все слова, входящие в последовательность только один раз. 
-	
-	В. Дополнительная информация о слове:
-	2) Порядковый номер слова в последовательности. 
-	
-	Требуется ввести эту последовательность и преобразовать ее во внутреннее представ-
-ление, а затем напечатать по алфавиту определенные слова с дополнительной инфор-
-мацией о каждом из них.
+   Р”Р°РЅР° РїРѕСЃР»РµРґРѕРІР°С‚РµР»СЊРЅРѕСЃС‚СЊ РѕС‚ 1 РґРѕ 20 СЃР»РѕРІ, РєР°Р¶РґРѕРµ РёР· РєРѕС‚РѕСЂС‹С… СЃРѕРґРµСЂР¶РёС‚ РѕС‚ 1 РґРѕ 8 Р·Р°РіР»Р°РІРЅС‹С… Р»Р°С‚РёРЅСЃРєРёС… Р±СѓРєРІ;
+	СЃРѕСЃРµРґРЅРёРµ СЃР»РѕРІР° СЂР°Р·РґРµР»РµРЅС‹ Р·Р°РїСЏС‚РѕР№, Р·Р° РїРѕСЃР»РµРґРЅРёРј СЃР»РѕРІРѕРј СЃР»РµРґСѓРµС‚ С‚РѕС‡РєР°.
+
+	Рђ. Р’РЅСѓС‚СЂРµРЅРЅРµРµ РїСЂРµРґСЃС‚Р°РІР»РµРЅРёРµ РїРѕСЃР»РµРґРѕРІР°С‚РµР»СЊРЅРѕСЃС‚Рё СЃР»РѕРІ:
+	7) РЎРїРёСЃРѕРє СЃР»РѕРІ, СѓРїРѕСЂСЏРґРѕС‡РµРЅРЅС‹С… РїРѕ Р°Р»С„Р°РІРёС‚Сѓ.
+
+	Р‘. РљР°РєРёРµ СЃР»РѕРІР° Рё РІ РєР°РєРѕРј РїРѕСЂСЏРґРєРµ РїРµС‡Р°С‚Р°С‚СЊ:
+	12)Р’СЃРµ СЃР»РѕРІР°, РІС…РѕРґСЏС‰РёРµ РІ РїРѕСЃР»РµРґРѕРІР°С‚РµР»СЊРЅРѕСЃС‚СЊ С‚РѕР»СЊРєРѕ РѕРґРёРЅ СЂР°Р·.
+
+	Р’. Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅР°СЏ РёРЅС„РѕСЂРјР°С†РёСЏ Рѕ СЃР»РѕРІРµ:
+	2) РџРѕСЂСЏРґРєРѕРІС‹Р№ РЅРѕРјРµСЂ СЃР»РѕРІР° РІ РїРѕСЃР»РµРґРѕРІР°С‚РµР»СЊРЅРѕСЃС‚Рё.
+
+	РўСЂРµР±СѓРµС‚СЃСЏ РІРІРµСЃС‚Рё СЌС‚Сѓ РїРѕСЃР»РµРґРѕРІР°С‚РµР»СЊРЅРѕСЃС‚СЊ Рё РїСЂРµРѕР±СЂР°Р·РѕРІР°С‚СЊ РµРµ РІРѕ РІРЅСѓС‚СЂРµРЅРЅРµРµ РїСЂРµРґСЃС‚Р°РІ-
+Р»РµРЅРёРµ, Р° Р·Р°С‚РµРј РЅР°РїРµС‡Р°С‚Р°С‚СЊ РїРѕ Р°Р»С„Р°РІРёС‚Сѓ РѕРїСЂРµРґРµР»РµРЅРЅС‹Рµ СЃР»РѕРІР° СЃ РґРѕРїРѕР»РЅРёС‚РµР»СЊРЅРѕР№ РёРЅС„РѕСЂ-
+РјР°С†РёРµР№ Рѕ РєР°Р¶РґРѕРј РёР· РЅРёС….
 *
 Elem struc
 	new_word db 8 dup (?)
@@ -37,9 +37,9 @@ Elem ends
 	Comp_w	 dd 0
 	Rem_ind	 dd ?
 .code
-	
+
 ;-------------------------------------------------
-;Процедура добавления слов в список
+;РџСЂРѕС†РµРґСѓСЂР° РґРѕР±Р°РІР»РµРЅРёСЏ СЃР»РѕРІ РІ СЃРїРёСЃРѕРє
 InList proc uses eax ebx ecx edx esi edi, @List:dword, @N:byte
     mov  	ebx, @List
     new  	sizeof Elem
@@ -63,20 +63,20 @@ InList proc uses eax ebx ecx edx esi edi, @List:dword, @N:byte
 	xor 	edx, edx
 	mov 	cl,[eax].Elem.new_word[edx]
     cmp  	dword ptr [ebx],nil
-    jne  	@Add_list;          
-    mov  	[ebx], eax;     
+    jne  	@Add_list;
+    mov  	[ebx], eax;
     jmp  	@KOH
 
 @Add_list:
 	mov  	ebx,[ebx]
     mov  	[eax].Elem.next, ebx
     mov  	edi,@List
-    mov  	[edi],eax;	
+    mov  	[edi],eax;
 @KOH:
 	ret
 InList endp
 ;-------------------------------------------------
-;Процедура определения длины для сравнения слов
+;РџСЂРѕС†РµРґСѓСЂР° РѕРїСЂРµРґРµР»РµРЅРёСЏ РґР»РёРЅС‹ РґР»СЏ СЃСЂР°РІРЅРµРЅРёСЏ СЃР»РѕРІ
 Leght_loop proc uses ecx
 	xor		ecx,ecx
 	xor 	esi,esi
@@ -91,7 +91,7 @@ Leght_loop proc uses ecx
 	ret
 Leght_loop endp
 ;-------------------------------------------------
-;Процедура сравнения слов
+;РџСЂРѕС†РµРґСѓСЂР° СЃСЂР°РІРЅРµРЅРёСЏ СЃР»РѕРІ
 Compare_char proc uses ecx edx ebx esi edi
 	xor  	edx,edx
 	xor 	ecx,ecx
@@ -109,14 +109,14 @@ Compare_char proc uses ecx edx ebx esi edi
 	cmp		edx, esi
 	je		@Larger
 	inc		edx
-	jmp		@Comp	
+	jmp		@Comp
 @Larger:
 	mov     Comp_w, 1
-@KOH:	
+@KOH:
 	ret
 Compare_char endp
 ;-------------------------------------------------
-;Процедура сортировки
+;РџСЂРѕС†РµРґСѓСЂР° СЃРѕСЂС‚РёСЂРѕРІРєРё
 SortList proc uses eax ebx ecx edx esi edi, @List:dword, @List1:dword
 	mov  	ebx,@List
 @Find_Vsp_w :
@@ -134,20 +134,20 @@ SortList proc uses eax ebx ecx edx esi edi, @List:dword, @List1:dword
 	je 		@Cursor
 	dec 	ecx
 	inc 	esi
-	jmp 	@Fill_w		
+	jmp 	@Fill_w
 @Next_elem:
 	cmp  	[ebx].Elem.next,nil
 	je		@Empty_list
 	mov  	edi,[ebx].Elem.next
 	mov  	ebx,edi
-	jmp		@Find_Vsp_w	
+	jmp		@Find_Vsp_w
 @Empty_list:
 	jmp 	@KOH
 @Cursor:
 	mov	    Rem_ind, ebx
 	xor		ebx, ebx
     mov  	ebx,@List
-	jmp		@Search	
+	jmp		@Search
 @Vsp_w :
 	cmp 	[ebx].Elem.flag,1
 	je 		@Next_elem
@@ -164,20 +164,20 @@ SortList proc uses eax ebx ecx edx esi edi, @List:dword, @List1:dword
 	je 		@Next
 	dec 	ecx
 	inc 	esi
-	jmp 	@Fill_w1	
+	jmp 	@Fill_w1
 @Next:
 	cmp  	[ebx].Elem.next,nil
 	je		@Add
 	mov  	edi,[ebx].Elem.next
 	mov  	ebx,edi
-	jmp		@Search 	
+	jmp		@Search
 @Search:
 	cmp 	[ebx].Elem.flag,1
 	je		@Next
-	call  	Compare_char	
-	cmp 	Comp_w,1	
+	call  	Compare_char
+	cmp 	Comp_w,1
 	je  	@Vsp_w
-	jmp 	@Next	
+	jmp 	@Next
 @Add:
 	mov		ebx, Rem_ind
 	mov		[ebx].Elem.flag,1
@@ -205,15 +205,15 @@ SortList proc uses eax ebx ecx edx esi edi, @List:dword, @List1:dword
 	xor 	edx, edx
 	mov 	cl,[eax].Elem.new_word[edx]
     cmp  	dword ptr [ebx],nil
-    jne  	@Add_list;          
-    mov  	[ebx],eax;     
+    jne  	@Add_list;
+    mov  	[ebx],eax;
     jmp  	@Continue
 @Add_list:
 	mov  	ebx,[ebx]
     mov  	[eax].Elem.next, ebx
     mov  	edi,@List1
-    mov  	[edi],eax;	
-@Continue:	
+    mov  	[edi],eax;
+@Continue:
 	xor		ebx, ebx
 	mov  	ebx,@List
 	jmp 	@Find_Vsp_w
@@ -221,14 +221,14 @@ SortList proc uses eax ebx ecx edx esi edi, @List:dword, @List1:dword
 	ret
 SortList endp
 ;-------------------------------------------------
-;Распечатываем исходный лист
+;Р Р°СЃРїРµС‡Р°С‚С‹РІР°РµРј РёСЃС…РѕРґРЅС‹Р№ Р»РёСЃС‚
 OutList proc uses ecx ebx esi, @List:dword
-    mov  	ebx,@List;      
+    mov  	ebx,@List;
 assume 		ebx:ptr Elem
     cmp  	ebx,nil
     jne  	@L1
-    outstr "Список пуст" 
-    jmp  	@KOH 
+    outstr "РЎРїРёСЃРѕРє РїСѓСЃС‚"
+    jmp  	@KOH
 @L4:
 	cmp  	ebx,nil
     je   	@KOH
@@ -236,14 +236,14 @@ assume 		ebx:ptr Elem
 @L1:
 	mov 	esi, 0
 	mov 	ecx, [ebx].Elem.num_char
-@L3:	
+@L3:
 	outchar [ebx].Elem.new_word[esi]
 	cmp 	ecx, 0
 	je 		@L2
 	dec 	ecx
 	inc 	esi
     jmp 	@L3
-@L2: 
+@L2:
 	mov  	ebx,[ebx].next
     jmp  	@L4
 assume ebx:NOTHING
@@ -253,14 +253,14 @@ assume ebx:NOTHING
     ret
 OutList endp
 ;-------------------------------------------------
-;Распечатываем отсортированный лист с порядковым номером
+;Р Р°СЃРїРµС‡Р°С‚С‹РІР°РµРј РѕС‚СЃРѕСЂС‚РёСЂРѕРІР°РЅРЅС‹Р№ Р»РёСЃС‚ СЃ РїРѕСЂСЏРґРєРѕРІС‹Рј РЅРѕРјРµСЂРѕРј
 OutList2 proc uses ecx ebx esi, @List1:dword
     mov  	ebx,@List1
 assume 		ebx:ptr Elem
     cmp  	ebx,nil
     jne  	@L1
-    outstr  'Список пуст' 
-    jmp  	@KOH 
+    outstr  'РЎРїРёСЃРѕРє РїСѓСЃС‚'
+    jmp  	@KOH
 @L4:
 	cmp  	ebx,nil
     je   	@KOH
@@ -268,14 +268,14 @@ assume 		ebx:ptr Elem
 @L1:
 	mov 	esi, 0
 	mov 	ecx, [ebx].Elem.num_char
-@L3:	
+@L3:
 	outchar [ebx].Elem.new_word[esi]
 	cmp 	ecx, 0
 	je 		@L2
 	dec 	ecx
 	inc 	esi
     jmp 	@L3
-@L2: 
+@L2:
 	outchar  ' '
 	outint  [ebx].Elem.index
 	mov  	ebx,[ebx].next
@@ -315,10 +315,10 @@ Compare_char1 proc uses ecx edx ebx esi eax
 	cmp		edx, esi
 	je		@Equal
 	inc		edx
-	jmp		@Comp	
+	jmp		@Comp
 @Equal:
 	inc     [ebx].Elem.freq
-@KOH:	
+@KOH:
 	ret
 Compare_char1 endp
 
@@ -327,7 +327,7 @@ Repeat_word proc uses ecx eax esi, @List:dword
 assume 		eax:ptr Elem
 @L4:
     cmp  	eax,nil
-    je  	@KOH 
+    je  	@KOH
 	call	Compare_char1
 	mov  	eax,[eax].next
     jmp  	@L4
@@ -336,14 +336,14 @@ assume ebx:NOTHING
     ret
 Repeat_word endp
 ;-------------------------------------------------
-;Распечатываем слова, которые входят в последовательность только один раз
+;Р Р°СЃРїРµС‡Р°С‚С‹РІР°РµРј СЃР»РѕРІР°, РєРѕС‚РѕСЂС‹Рµ РІС…РѕРґСЏС‚ РІ РїРѕСЃР»РµРґРѕРІР°С‚РµР»СЊРЅРѕСЃС‚СЊ С‚РѕР»СЊРєРѕ РѕРґРёРЅ СЂР°Р·
 OutList3 proc uses ecx ebx esi, @List:dword
     mov  	ebx,@List
 assume 		ebx:ptr Elem
     cmp  	ebx,nil
     jne  	@L1
-    outstr  'Список пуст' 
-    jmp  	@KOH 
+    outstr  'РЎРїРёСЃРѕРє РїСѓСЃС‚'
+    jmp  	@KOH
 @L4:
 	cmp  	ebx,nil
     je   	@KOH
@@ -353,14 +353,14 @@ assume 		ebx:ptr Elem
 	jg		@L5
 	mov 	esi, 0
 	mov 	ecx, [ebx].Elem.num_char
-@L3:	
+@L3:
 	outchar [ebx].Elem.new_word[esi]
 	cmp 	ecx, 0
 	je 		@L2
 	dec 	ecx
 	inc 	esi
     jmp 	@L3
-@L2: 
+@L2:
 	outchar  ' '
 @L5:
 	mov  	ebx,[ebx].next
@@ -371,7 +371,7 @@ assume ebx:NOTHING
     ret
 OutList3 endp
 ;-------------------------------------------------
-;Процедура удаления листа
+;РџСЂРѕС†РµРґСѓСЂР° СѓРґР°Р»РµРЅРёСЏ Р»РёСЃС‚Р°
 DeleteList proc uses eax ebx, @List:dword
     mov     ebx,@List
     mov     ebx,[ebx]
@@ -391,22 +391,22 @@ assume ebx:NOTHING
 DeleteList endp
 ;-------------------------------------------------
 Err:
-	outstrln 'Превышено число слов!'
+	outstrln 'РџСЂРµРІС‹С€РµРЅРѕ С‡РёСЃР»Рѕ СЃР»РѕРІ!'
 	jmp 	End_program
-	
+
 Wrong_char:
-	outstrln 'Слово содержит неверный символ!'
+	outstrln 'РЎР»РѕРІРѕ СЃРѕРґРµСЂР¶РёС‚ РЅРµРІРµСЂРЅС‹Р№ СЃРёРјРІРѕР»!'
 	jmp 	End_program
 
 Wrong_num_char:
-	outstrln 'В слове неверное количество символов!'
+	outstrln 'Р’ СЃР»РѕРІРµ РЅРµРІРµСЂРЅРѕРµ РєРѕР»РёС‡РµСЃС‚РІРѕ СЃРёРјРІРѕР»РѕРІ!'
 	jmp 	End_program
-;-------------------------------------------------	
+;-------------------------------------------------
 Start:
 	clrscr
 	newline
 	SetTextAttr Yellow
-    outstrln 'Введите от 1 до 20 слов:'
+    outstrln 'Р’РІРµРґРёС‚Рµ РѕС‚ 1 РґРѕ 20 СЃР»РѕРІ:'
 	SetTextAttr
 	xor 	edi, edi
 Vvod:
@@ -414,7 +414,7 @@ Vvod:
 	jge		Err
 	xor 	esi, esi
 	xor 	eax, eax
-L1:	
+L1:
 	inchar X
 	cmp 	X, '.'
 	je 		End_Vvod
@@ -430,7 +430,7 @@ L1:
 	mov 	Y[esi], al
 	inc 	esi
 	jmp 	L1
-	
+
 End_Word:
 	dec 	esi
 	inc		edi
@@ -438,7 +438,7 @@ End_Word:
 	mov		Index_w, edi
 	invoke  InList,offset List, Y
 	jmp 	Vvod
-	
+
 End_Vvod:
 	cmp esi, 0
 	je Wrong_num_char
@@ -446,43 +446,43 @@ End_Vvod:
 	inc		edi
 	mov 	Num_char, esi
 	mov		Index_w, edi
-	invoke  InList,offset List, Y	
+	invoke  InList,offset List, Y
 	newline
 	SetTextAttr Yellow
-	outstrln 'Заполнили список:'
+	outstrln 'Р—Р°РїРѕР»РЅРёР»Рё СЃРїРёСЃРѕРє:'
 	SetTextAttr
-	invoke  OutList,List	
+	invoke  OutList,List
 	newline
 	invoke 	SortList,List,offset List1
 	SetTextAttr Yellow
-	outstrln 'А. Внутреннее представление последовательности слов:'
-	outstrln '7) Список слов, упорядоченных по алфавиту.'
+	outstrln 'Рђ. Р’РЅСѓС‚СЂРµРЅРЅРµРµ РїСЂРµРґСЃС‚Р°РІР»РµРЅРёРµ РїРѕСЃР»РµРґРѕРІР°С‚РµР»СЊРЅРѕСЃС‚Рё СЃР»РѕРІ:'
+	outstrln '7) РЎРїРёСЃРѕРє СЃР»РѕРІ, СѓРїРѕСЂСЏРґРѕС‡РµРЅРЅС‹С… РїРѕ Р°Р»С„Р°РІРёС‚Сѓ.'
 	SetTextAttr
 	invoke  OutList,List1
 	newline
 	SetTextAttr Yellow
-	outstrln 'В. Дополнительная информация о слове:'
-	outstrln '2) Порядковый номер слова в последовательности.'
+	outstrln 'Р’. Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅР°СЏ РёРЅС„РѕСЂРјР°С†РёСЏ Рѕ СЃР»РѕРІРµ:'
+	outstrln '2) РџРѕСЂСЏРґРєРѕРІС‹Р№ РЅРѕРјРµСЂ СЃР»РѕРІР° РІ РїРѕСЃР»РµРґРѕРІР°С‚РµР»СЊРЅРѕСЃС‚Рё.'
 	SetTextAttr
 	invoke  OutList2,List
 	newline
 	SetTextAttr Yellow
-	outstrln 'Б. Какие слова и в каком порядке печатать:'
-	outstrln '12)Все слова, входящие в последовательность только один раз.'
+	outstrln 'Р‘. РљР°РєРёРµ СЃР»РѕРІР° Рё РІ РєР°РєРѕРј РїРѕСЂСЏРґРєРµ РїРµС‡Р°С‚Р°С‚СЊ:'
+	outstrln '12)Р’СЃРµ СЃР»РѕРІР°, РІС…РѕРґСЏС‰РёРµ РІ РїРѕСЃР»РµРґРѕРІР°С‚РµР»СЊРЅРѕСЃС‚СЊ С‚РѕР»СЊРєРѕ РѕРґРёРЅ СЂР°Р·.'
 	SetTextAttr
-	invoke  OutList3,List	
+	invoke  OutList3,List
 	newline
 	SetTextAttr Yellow
-	outstrln 'Удаляем последовательность:'
+	outstrln 'РЈРґР°Р»СЏРµРј РїРѕСЃР»РµРґРѕРІР°С‚РµР»СЊРЅРѕСЃС‚СЊ:'
 	invoke  DeleteList,offset List
 	invoke  DeleteList,offset List1
-	SetTextAttr	
-	outstrln 'проверяем, что список пуст...'
+	SetTextAttr
+	outstrln 'РїСЂРѕРІРµСЂСЏРµРј, С‡С‚Рѕ СЃРїРёСЃРѕРє РїСѓСЃС‚...'
 	invoke  OutList,List
 	newline
 KOH:
-MsgBox "  Конец задачи", \
-    <"Попробуем",13,10,"ещё раз ?">, \
+MsgBox "  РљРѕРЅРµС† Р·Р°РґР°С‡Рё", \
+    <"РџРѕРїСЂРѕР±СѓРµРј",13,10,"РµС‰С‘ СЂР°Р· ?">, \
     MB_YESNO+MB_ICONQUESTION
     cmp  	eax,IDYES
     je   	Start

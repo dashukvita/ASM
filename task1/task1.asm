@@ -1,11 +1,6 @@
-;Задание 12(Битовые операции)
-;1)	Необходимо вывести на консоль состояние флагов процессора. 
-;Сама отладочная процедура не должна влиять на какие-либо регистры либо на память! 
-;Какие флаги достаточно вывести это: OF, CF, ZF, SF
-
 Include io.asm
 
-Stack segment stack 
+Stack segment stack
 	db 128 dup(?)
 stack ends
 
@@ -23,7 +18,7 @@ start:
 	mov ax, data
 	mov ds, ax
 	call cond_flag_register
-	
+
 	finish
 ;-------------------------------------
 cond_flag_register proc
@@ -31,17 +26,17 @@ cond_flag_register proc
 	lea dx, s_cf
 	outstr
 	call print_flags
-	
+
 	lea dx, s_zf
 	outstr
 	mov cl, 6
     call print_flags
-	
+
 	lea dx, s_sf
 	outstr
 	mov cl, 7
     call print_flags
-	
+
 	lea dx, s_of
 	outstr
 	mov cl, 11
@@ -51,24 +46,24 @@ cond_flag_register endp
 ;-------------------------------------
 ;number_flags proc
 ;    xor ax,ax
-;    pushf                   
+;    pushf
 ;    pushf
 ;	pop ax
 ;	shr ax, cl
 ;	and ax, 1b
-;    popf                    
+;    popf
 ;    ret
 ;number_flags endp
 ;-------------------------------------
 print_flags proc
 	xor ax,ax
-    pushf                   
+    pushf
     pushf
 	pop ax
 	shr ax, cl
 	and ax, 1b
     popf
-	
+
 	mov rez, ax
 	outint rez
 	newline
@@ -76,4 +71,4 @@ print_flags proc
 print_flags endp
 ;-------------------------------------
 code ends
-end start 
+end start
